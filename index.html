@@ -152,7 +152,7 @@
                     <!-- ICONOS SOCIALES -->
                     <div class="flex space-x-4 text-white pl-4 border-l border-brand-gray h-5 items-center">
                         <a href="https://www.instagram.com/harold.reina_keto/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-red transition" aria-label="Instagram">
-                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.272 2.695.072 7.053.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.272 2.695.072 7.053.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782; 2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg>
                         </a>
                         <a href="https://www.behance.net/haroldreinar" target="_blank" rel="noopener noreferrer" class="hover:text-brand-red transition" aria-label="Behance">
                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14h-8.027c.13 3.211 3.483 3.312 4.588 2.029h3.168zm-7.686-4h4.965c-.105-1.547-1.136-2.219-2.477-2.219-1.466 0-2.277.768-2.488 2.219zm-9.574 6.988h-6.466v-14.967h6.953c5.476.081 5.58 5.444 2.72 6.906 3.461 1.26 3.577 8.061-3.207 8.061zm-3.466-8.988h3.584c2.508 0 2.906-3-.312-3h-3.272v3zm3.391 3h-3.391v3.016h3.341c3.055 0 2.868-3.016.05-3.016z"/></svg>
@@ -271,21 +271,21 @@
     </section>
 
     <!-- ========================================================= -->
-    <!-- BANNER PANORÁMICO 1 (Responsivo)                          -->
+    <!-- BANNER PANORÁMICO 1 (Responsivo 100% Sin Breakpoints fijos) -->
     <!-- ========================================================= -->
-    <section class="relative w-full h-[140px] sm:h-[220px] md:h-[300px] lg:h-[380px] bg-brand-dark overflow-hidden border-t border-b border-brand-gray">
+    <section class="relative w-full bg-brand-dark overflow-hidden border-t border-b border-brand-gray animate-fade-in" style="aspect-ratio: 1920/380;">
         <img src="assets/banners/banner-about.jpg" 
              alt="Banner Harold Reina" 
-             class="w-full h-full object-cover"
+             class="w-full h-full object-cover object-center"
              onerror="this.style.display='none'; document.getElementById('banner-about-fallback').classList.remove('hidden')" />
         
-        <!-- Fallback de diseño si no se encuentra la imagen -->
+        <!-- Fallback de diseño si no se encuentra la imagen (Responsive) -->
         <div id="banner-about-fallback" class="hidden absolute inset-0 bg-gradient-to-r from-brand-dark via-zinc-950 to-brand-dark flex items-center justify-center">
             <div class="text-center space-y-2 p-4">
-                <span class="text-[8px] sm:text-[10px] uppercase tracking-widest font-bold text-brand-red font-body">Composición Visual de Banner</span>
-                <h3 class="font-display text-lg sm:text-2xl md:text-4xl text-white tracking-widest">ESPACIO IMAGEN PANORÁMICA</h3>
-                <code class="text-[9px] sm:text-xs text-zinc-500 bg-black/40 px-2 py-1 rounded">assets/banners/banner-about.jpg</code>
-                <span class="block text-[8px] sm:text-[10px] text-brand-red font-bold font-mono">ESPECIFICACIÓN: 1920 x 380 px</span>
+                <span class="text-[7px] sm:text-[10px] uppercase tracking-widest font-bold text-brand-red font-body block">Composición Visual de Banner</span>
+                <h3 class="font-display text-sm sm:text-2xl md:text-4xl text-white tracking-widest">ESPACIO IMAGEN PANORÁMICA</h3>
+                <code class="text-[8px] sm:text-xs text-zinc-500 bg-black/40 px-2 py-0.5 rounded break-all inline-block font-mono">assets/banners/banner-about.jpg</code>
+                <span class="block text-[7px] sm:text-[10px] text-brand-red font-bold font-mono">ESPECIFICACIÓN: 1920 x 380 px</span>
             </div>
         </div>
         <div class="absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-brand-dark to-transparent"></div>
@@ -572,7 +572,7 @@
                         <div class="absolute inset-0 bg-black/40 z-10 group-hover:bg-black/10 transition-colors duration-300"></div>
                         <img src="assets/projects/brand-1.jpg" 
                              alt="Caso de Branding Mercado Geek" 
-                             class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+                             class="w-full h-full object-cover"
                              onerror="this.style.display='none'; document.getElementById('ph-1').classList.remove('hidden')" />
                         
                         <div id="ph-1" class="hidden absolute inset-0 flex flex-col items-center justify-center p-6 bg-gradient-to-br from-zinc-950 to-zinc-900 text-center">
@@ -600,20 +600,20 @@
     </section>
 
     <!-- ========================================================= -->
-    <!-- BANNER PANORÁMICO 2 (Responsivo)                          -->
+    <!-- BANNER PANORÁMICO 2 (Responsivo 100% Sin Breakpoints fijos) -->
     <!-- ========================================================= -->
-    <section class="relative w-full h-[140px] sm:h-[220px] md:h-[300px] lg:h-[380px] bg-brand-dark overflow-hidden border-t border-b border-brand-gray">
+    <section class="relative w-full bg-brand-dark overflow-hidden border-t border-b border-brand-gray animate-fade-in" style="aspect-ratio: 1920/380;">
         <img src="assets/banners/banner-contact.jpg" 
              alt="Banner Harold Reina Contacto" 
-             class="w-full h-full object-cover"
+             class="w-full h-full object-cover object-center"
              onerror="this.style.display='none'; document.getElementById('banner-contact-fallback').classList.remove('hidden')" />
         
-        <!-- Fallback de diseño si no se encuentra la imagen -->
+        <!-- Fallback de diseño si no se encuentra la imagen (Responsive) -->
         <div id="banner-contact-fallback" class="hidden absolute inset-0 bg-gradient-to-r from-brand-dark via-zinc-950 to-brand-dark flex items-center justify-center">
             <div class="text-center space-y-2 p-4">
-                <span class="text-[8px] sm:text-[10px] uppercase tracking-widest font-bold text-brand-red font-body">Composición Conceptual 3D</span>
+                <span class="text-[8px] sm:text-[10px] uppercase tracking-widest font-bold text-brand-red font-body block">Composición Conceptual 3D</span>
                 <h3 class="font-display text-lg sm:text-2xl md:text-4xl text-white tracking-widest">ESPACIO IMAGEN DE CONTACTO</h3>
-                <code class="text-[9px] sm:text-xs text-zinc-500 bg-black/40 px-2 py-1 rounded">assets/banners/banner-contact.jpg</code>
+                <code class="text-[9px] sm:text-xs text-zinc-500 bg-black/40 px-2 py-0.5 rounded break-all inline-block font-mono">assets/banners/banner-contact.jpg</code>
                 <span class="block text-[8px] sm:text-[10px] text-brand-red font-bold font-mono">ESPECIFICACIÓN: 1920 x 380 px</span>
             </div>
         </div>
