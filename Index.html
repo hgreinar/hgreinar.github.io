@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harold Reina | Diseño, Publicidad y Marketing</title>
+    <!-- Tailwind CSS para diseño fluido y de vanguardia -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Iconos vectoriales Lucide para una interfaz técnica limpia -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Fuentes: Anton para títulos de impacto y Inter para legibilidad premium -->
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-red': '#B10000',
+                        'brand-dark': '#080808',
+                        'brand-gray': '#141414',
+                        darkBg: '#080808',
+                        darkCard: '#0e0e0e',
+                        darkBorder: '#1c1c1c',
+                        accentRed: '#B10000',
+                        accentRedHover: '#900000',
+                    },
+                    fontFamily: {
+                        'display': ['Anton', 'sans-serif'],
+                        'body': ['Inter', 'sans-serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        serif: ['Anton', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Ocultar barra de desplazamiento manteniendo funcionalidad */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Patrón de fondo con puntos brand-red sobre fondo ultra oscuro */
+        .bg-pattern {
+            background-image: radial-gradient(#B10000 1px, transparent 1px);
+            background-size: 30px 30px;
+            background-position: 0 0;
+            background-color: #080808;
+        }
+
+        /* Personalización de scrollbar visible para el cuerpo de la página */
+        ::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #080808;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #141414;
+            border-radius: 3px;
+            border: 1px solid #B10000;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #B10000;
+        }
+
+        /* Transiciones fluidas de navegación */
+        .nav-link {
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body class="bg-pattern text-zinc-300 antialiased overflow-x-hidden font-sans">
+
+    <!-- ========================================================= -->
+    <!-- HEADER / NAVEGACIÓN                                       -->
+    <!-- ========================================================= -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-black/90 backdrop-blur-md border-b border-white/10 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between text-xs font-bold tracking-[0.2em] uppercase">
+            
+            <!-- RESPONSIVE MOBILE MENU BUTTON -->
+            <div class="flex md:hidden w-full items-center justify-between">
+                <button onclick="toggleMobileMenu()" class="text-gray-400 hover:text-white focus:outline-none" aria-label="Abrir Menú">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+                
+                <!-- Isotipo móvil -->
+                <a href="#" class="relative w-10 h-10 flex items-center justify-center">
+                    <img src="assets/logo/logo.png" 
+                         alt="Logo Harold Reina" 
+                         onerror="this.style.display='none'; document.getElementById('logo-fallback-mobile').classList.remove('hidden')" 
+                         class="w-full h-full object-contain" />
+                    <div id="logo-fallback-mobile" class="hidden text-brand-red">
+                        <svg class="w-8 h-8" viewBox="0 0 100 100" fill="currentColor">
+                            <path d="M50 15 L62 42 L88 24 L74 64 L50 48 L26 64 L12 24 L38 42 Z" />
+                        </svg>
+                    </div>
+                </a>
+
+                <a href="#contacto" class="text-zinc-400 hover:text-brand-red transition-colors">
+                    <i data-lucide="mail" class="w-5 h-5"></i>
+                </a>
+            </div>
+
+            <!-- ENLACES NAVEGACIÓN ESCRITORIO -->
+            <div class="hidden md:flex w-full items-center justify-between h-full font-body">
+                
+                <!-- BLOQUE IZQUIERDO -->
+                <nav class="flex items-center h-full space-x-8 text-zinc-400">
+                    <a href="#inicio" id="link-inicio" class="nav-link text-brand-red bg-[#1a0000] px-3 py-1.5 border-b-2 border-brand-red transition">
+                        INICIO
+                    </a>
+                    <a href="#sobre-mi" id="link-sobre-mi" class="nav-link hover:text-white transition">
+                        SOBRE MÍ
+                    </a>
+                    <a href="#portafolio" id="link-portafolio" class="nav-link hover:text-white transition">
+                        PORTAFOLIO
+                    </a>
+                </nav>
+
+                <!-- ISOTIPO CENTRAL -->
+                <div class="flex items-center justify-center h-full">
+                    <a href="#" class="relative w-12 h-12 flex items-center justify-center group transition-transform duration-300 hover:scale-105" title="Harold Reina">
+                        <img src="assets/logo/logo.png" 
+                             alt="Isotipo Harold Reina" 
+                             onerror="this.style.display='none'; document.getElementById('logo-fallback-center').classList.remove('hidden')"
+                             class="h-10 w-auto object-contain transition-transform duration-300" />
+                        
+                        <div id="logo-fallback-center" class="hidden text-brand-red">
+                            <svg class="w-8 h-8" viewBox="0 0 100 100" fill="currentColor">
+                                <path d="M50 15 L62 42 L88 24 L74 64 L50 48 L26 64 L12 24 L38 42 Z" />
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- BLOQUE DERECHO -->
+                <div class="flex items-center h-full space-x-8 text-zinc-400">
+                    <nav class="flex items-center h-full space-x-8">
+                        <a href="#contacto" id="link-contacto" class="hover:text-white transition">
+                            CONTACTO
+                        </a>
+                    </nav>
+
+                    <!-- ICONOS SOCIALES -->
+                    <div class="flex space-x-4 text-white pl-4 border-l border-brand-gray h-5 items-center">
+                        <a href="https://www.instagram.com/harold.reina_keto/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-red transition" aria-label="Instagram">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.272 2.695.072 7.053.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg>
+                        </a>
+                        <a href="https://www.behance.net/haroldreinar" target="_blank" rel="noopener noreferrer" class="hover:text-brand-red transition" aria-label="Behance">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14h-8.027c.13 3.211 3.483 3.312 4.588 2.029h3.168zm-7.686-4h4.965c-.105-1.547-1.136-2.219-2.477-2.219-1.466 0-2.277.768-2.488 2.219zm-9.574 6.988h-6.466v-14.967h6.953c5.476.081 5.58 5.444 2.72 6.906 3.461 1.26 3.577 8.061-3.207 8.061zm-3.466-8.988h3.584c2.508 0 2.906-3-.312-3h-3.272v3zm3.391 3h-3.391v3.016h3.341c3.055 0 2.868-3.016.05-3.016z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- MENU MOBILE DROPDOWN -->
+        <div id="mobileMenu" class="hidden md:hidden bg-black border-t border-brand-red/45 px-6 py-4 space-y-3 text-xs font-bold uppercase tracking-widest font-body">
+            <a href="#inicio" onclick="toggleMobileMenu()" class="block text-brand-red py-1.5">Inicio</a>
+            <a href="#sobre-mi" onclick="toggleMobileMenu()" class="block text-zinc-400 hover:text-white py-1.5">Sobre mí</a>
+            <a href="#portafolio" onclick="toggleMobileMenu()" class="block text-zinc-400 hover:text-white py-1.5">Portafolio</a>
+            <a href="#contacto" onclick="toggleMobileMenu()" class="block text-zinc-400 hover:text-white py-1.5">Contacto</a>
+        </div>
+    </header>
+
+    <!-- ========================================================= -->
+    <!-- 1. HERO SECTION (Widescreen md:1920x1000, Mobile 1:1)     -->
+    <!-- ========================================================= -->
+    <section id="inicio" class="relative w-full aspect-[1/1] md:aspect-[1920/1000] min-h-[50vh] max-h-[100vh] bg-brand-dark/80 overflow-hidden border-b border-brand-gray pt-16">
+        
+        <!-- Implementación del picture tag para responsividad de imágenes nativa -->
+        <picture class="absolute inset-0 w-full h-full">
+            <!-- Imagen móvil recomendada de 1080x1080 -->
+            <source srcset="assets/hero/hero-mobile.jpg" media="(max-width: 767px)">
+            <!-- Imagen de escritorio normal -->
+            <source srcset="assets/hero/hero-bg.jpg" media="(min-width: 768px)">
+            
+            <img src="assets/hero/hero-bg.jpg" 
+                 alt="Portada Principal Harold Reina" 
+                 class="w-full h-full object-cover"
+                 onerror="this.style.display='none'; document.getElementById('hero-bg-fallback').classList.remove('hidden')">
+        </picture>
+        
+        <!-- Fallback visual -->
+        <div id="hero-bg-fallback" class="hidden absolute inset-0 bg-gradient-to-br from-zinc-950 to-black flex items-center justify-center">
+            <div class="text-center space-y-4 px-6">
+                <h1 class="font-display text-4xl md:text-7xl lg:text-8xl text-white tracking-widest uppercase">HAROLD REINA</h1>
+                <p class="text-xs md:text-sm tracking-[0.4em] uppercase font-bold text-brand-red font-body">DISEÑO • PUBLICIDAD • MARKETING</p>
+                <div class="pt-4">
+                    <a href="#portafolio" class="px-5 py-2.5 bg-zinc-900 border border-brand-gray text-[10px] text-zinc-400 hover:text-white hover:border-brand-red transition-all rounded-lg font-bold tracking-widest uppercase font-body inline-flex items-center gap-2 mx-auto">
+                        <i data-lucide="arrow-down" class="w-3.5 h-3.5 text-brand-red animate-bounce"></i> EXPLORAR PROYECTOS
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Gradiente de desvanecimiento hacia las secciones inferiores -->
+        <div class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-brand-dark to-transparent"></div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- 2. SECCIÓN SOBRE MÍ                                      -->
+    <!-- ========================================================= -->
+    <section id="sobre-mi" class="py-24 border-t border-brand-gray bg-brand-dark/85 backdrop-blur-md relative">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="flex items-center space-x-4 mb-16">
+                <div class="h-px bg-accentRed w-12"></div>
+                <h2 class="font-display text-3xl md:text-5xl font-extrabold tracking-widest text-white uppercase font-serif">Sobre mí</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- COLUMNA DE RETRATO -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-[380px] lg:max-w-[420px] aspect-[554/680] group">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-brand-red to-red-900 rounded-2xl blur-lg opacity-20 group-hover:opacity-40 transition duration-500"></div>
+                        
+                        <div class="relative w-full h-full rounded-xl bg-brand-dark border border-brand-gray overflow-hidden shadow-2xl">
+                            <img src="assets/profile/harold-profile.jpg" 
+                                 alt="Retrato Harold Reina" 
+                                 class="w-full h-full object-cover"
+                                 onerror="this.style.display='none'; document.getElementById('profile-about-fallback').classList.remove('hidden')" />
+                            
+                            <!-- Placeholder técnico si no se encuentra la imagen -->
+                            <div id="profile-about-fallback" class="hidden absolute inset-0 flex flex-col items-center justify-center p-6 bg-gradient-to-b from-zinc-900 to-black text-center">
+                                <i data-lucide="user" class="w-12 h-12 text-brand-red mb-4 animate-pulse"></i>
+                                <span class="text-xs font-display font-bold text-white uppercase tracking-widest">IMAGEN RETRATO</span>
+                                <span class="text-[10px] text-zinc-500 mt-2 font-mono">assets/profile/harold-profile.jpg</span>
+                                <span class="text-[10px] text-brand-red mt-1.5 font-bold font-mono">554 x 680 px</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUMNA DE TEXTO -->
+                <div class="lg:col-span-7 space-y-8">
+                    <div class="space-y-6 text-zinc-300 leading-relaxed font-light text-base md:text-lg font-body">
+                        <p>
+                            Soy Harold Giovanny Reina Rodríguez, Diseñador Gráfico, Publicista y especialista en Marketing con un fuerte enfoque técnico y de gestión empresarial. Actualmente, me encuentro en la etapa final de mi doble titulación en Publicidad y Mercadeo en la Fundación Universitaria Los Libertadores.
+                        </p>
+                        <p>
+                            Entiendo el diseño no solo como estética, sino como una herramienta de comunicación limpia y con un profundo rigor conceptual. Mi compromiso con la excelencia se refleja en una sólida trayectoria académica con un promedio acumulado de <span class="text-white font-bold border-b border-brand-red pb-0.5">4.5/5.0</span>. Busco constantemente expandir los límites de mi práctica, explorando desde la estructura minimalista y orgánica del diseño de interfaces y branding, hasta la complejidad del modelado tridimensional y audiovisual.
+                        </p>
+                        <p>
+                            Mi objetivo principal es integrar la estrategia analítica de mercado con una dirección de arte de altísimo impacto visual, materializando ideas en proyectos disruptivos con identidad propia y relevance conceptual.
+                        </p>
+                    </div>
+
+                    <!-- Botón "Ver Hoja de Vida" en Behance -->
+                    <div class="pt-6 border-t border-brand-gray flex flex-col sm:flex-row items-center justify-between gap-6">
+                        <a href="https://www.behance.net/gallery/215542735/Hoja-de-vida-Diseno-grafico-y-publicidad" target="_blank" rel="noopener noreferrer" class="group relative px-8 py-4 bg-gradient-to-r from-brand-red to-red-800 text-white font-bold text-xs uppercase tracking-widest rounded-xl transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-brand-red/35 flex items-center justify-center gap-3 overflow-hidden font-body">
+                            <span class="absolute inset-0 w-full h-full bg-white/5 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
+                            <i data-lucide="file-text" class="w-4.5 h-4.5"></i>
+                            Ver Hoja de Vida
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- BANNER PANORÁMICO 1 (Responsivo)                          -->
+    <!-- ========================================================= -->
+    <section class="relative w-full h-[140px] sm:h-[220px] md:h-[300px] lg:h-[380px] bg-brand-dark overflow-hidden border-t border-b border-brand-gray">
+        <img src="assets/banners/banner-about.jpg" 
+             alt="Banner Harold Reina" 
+             class="w-full h-full object-cover"
+             onerror="this.style.display='none'; document.getElementById('banner-about-fallback').classList.remove('hidden')" />
+        
+        <!-- Fallback de diseño si no se encuentra la imagen -->
+        <div id="banner-about-fallback" class="hidden absolute inset-0 bg-gradient-to-r from-brand-dark via-zinc-950 to-brand-dark flex items-center justify-center">
+            <div class="text-center space-y-2 p-4">
+                <span class="text-[8px] sm:text-[10px] uppercase tracking-widest font-bold text-brand-red font-body">Composición Visual de Banner</span>
+                <h3 class="font-display text-lg sm:text-2xl md:text-4xl text-white tracking-widest">ESPACIO IMAGEN PANORÁMICA</h3>
+                <code class="text-[9px] sm:text-xs text-zinc-500 bg-black/40 px-2 py-1 rounded">assets/banners/banner-about.jpg</code>
+                <span class="block text-[8px] sm:text-[10px] text-brand-red font-bold font-mono">ESPECIFICACIÓN: 1920 x 380 px</span>
+            </div>
+        </div>
+        <div class="absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-brand-dark to-transparent"></div>
+        <div class="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-brand-dark to-transparent"></div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- 3. EXPERIENCIA (Deslizable Infinito de Arrastre Manual)    -->
+    <!-- ========================================================= -->
+    <section class="py-16 bg-black overflow-hidden border-b border-brand-gray select-none">
+        <div class="max-w-7xl mx-auto px-6 mb-8 text-center">
+            <h2 class="font-display text-3xl md:text-5xl font-extrabold tracking-widest text-white uppercase font-serif">Experiencia</h2>
+        </div>
+        
+        <!-- Contenedor del Slider Manual Draggable de Arrastre de Extremo a Extremo -->
+        <div class="relative w-full py-6 bg-zinc-950/40 border-y border-zinc-900/50">
+            <!-- logo-slider es controlado por JS para triplicar los elementos y permitir loop infinito táctil/ratón -->
+            <div id="logo-slider" class="flex items-center space-x-12 overflow-x-auto no-scrollbar cursor-grab active:cursor-grabbing px-6 py-4 scroll-smooth">
+                
+                <!-- LOGO 1 (logo1.png - Estándar: 180x48px) -->
+                <div class="flex flex-col items-center justify-center min-w-[180px] shrink-0">
+                    <img src="assets/experience/logo1.png" 
+                         alt="Logo 1" 
+                         class="h-12 w-[180px] object-contain pointer-events-none"
+                         onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden'); this.nextElementSibling.classList.add('flex')">
+                    <div class="hidden flex-col items-center justify-center border border-zinc-800 bg-zinc-950/90 rounded-lg p-3 text-center tracking-normal w-[180px] h-[72px]">
+                        <span class="text-[10px] font-bold text-brand-red block uppercase">Logo 1</span>
+                        <span class="text-[8px] text-zinc-500 font-mono mt-0.5 font-sans">logo1.png</span>
+                        <span class="text-[9px] text-white font-mono font-bold mt-1.5 font-sans">180 x 48 px</span>
+                    </div>
+                </div>
+
+                <!-- ESTRELLA DIVISORA -->
+                <span class="text-brand-red text-base select-none shrink-0">★</span>
+
+                <!-- LOGO 2 (logo2.png - Estándar: 180x48px) -->
+                <div class="flex flex-col items-center justify-center min-w-[180px] shrink-0">
+                    <img src="assets/experience/logo2.png" 
+                         alt="Logo 2" 
+                         class="h-12 w-[180px] object-contain pointer-events-none"
+                         onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden'); this.nextElementSibling.classList.add('flex')">
+                    <div class="hidden flex-col items-center justify-center border border-zinc-800 bg-zinc-950/90 rounded-lg p-3 text-center tracking-normal w-[180px] h-[72px]">
+                        <span class="text-[10px] font-bold text-brand-red block uppercase">Logo 2</span>
+                        <span class="text-[8px] text-zinc-500 font-mono mt-0.5 font-sans">logo2.png</span>
+                        <span class="text-[9px] text-white font-mono font-bold mt-1.5 font-sans">180 x 48 px</span>
+                    </div>
+                </div>
+
+                <!-- ESTRELLA DIVISORA -->
+                <span class="text-brand-red text-base select-none shrink-0">★</span>
+
+                <!-- LOGO 3 (logo3.png - Estándar: 180x48px) -->
+                <div class="flex flex-col items-center justify-center min-w-[180px] shrink-0">
+                    <img src="assets/experience/logo3.png" 
+                         alt="Logo 3" 
+                         class="h-12 w-[180px] object-contain pointer-events-none"
+                         onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden'); this.nextElementSibling.classList.add('flex')">
+                    <div class="hidden flex-col items-center justify-center border border-zinc-800 bg-zinc-950/90 rounded-lg p-3 text-center tracking-normal w-[180px] h-[72px]">
+                        <span class="text-[10px] font-bold text-brand-red block uppercase">Logo 3</span>
+                        <span class="text-[8px] text-zinc-500 font-mono mt-0.5 font-sans">logo3.png</span>
+                        <span class="text-[9px] text-white font-mono font-bold mt-1.5 font-sans">180 x 48 px</span>
+                    </div>
+                </div>
+
+                <!-- ESTRELLA DIVISORA -->
+                <span class="text-brand-red text-base select-none shrink-0">★</span>
+
+                <!-- LOGO 4 (logo4.png - Estándar: 180x48px) -->
+                <div class="flex flex-col items-center justify-center min-w-[180px] shrink-0">
+                    <img src="assets/experience/logo4.png" 
+                         alt="Logo 4" 
+                         class="h-12 w-[180px] object-contain pointer-events-none"
+                         onerror="this.style.display='none'; document.getElementById('logo-fallback-4').classList.remove('hidden')">
+                    <div id="logo-fallback-4" class="hidden flex-col items-center justify-center border border-zinc-800 bg-zinc-950/90 rounded-lg p-3 text-center tracking-normal w-[180px] h-[72px]">
+                        <span class="text-[10px] font-bold text-brand-red block uppercase">Logo 4</span>
+                        <span class="text-[8px] text-zinc-500 font-mono mt-0.5 font-sans">logo4.png</span>
+                        <span class="text-[9px] text-white font-mono font-bold mt-1.5 font-sans">180 x 48 px</span>
+                    </div>
+                </div>
+
+                <!-- ESTRELLA DIVISORA -->
+                <span class="text-brand-red text-base select-none shrink-0">★</span>
+
+                <!-- LOGO 5 (logo5.png - Estándar: 180x48px) -->
+                <div class="flex flex-col items-center justify-center min-w-[180px] shrink-0">
+                    <img src="assets/experience/logo5.png" 
+                         alt="Logo 5" 
+                         class="h-12 w-[180px] object-contain pointer-events-none"
+                         onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden'); this.nextElementSibling.classList.add('flex')">
+                    <div class="hidden flex-col items-center justify-center border border-zinc-800 bg-zinc-950/90 rounded-lg p-3 text-center tracking-normal w-[180px] h-[72px]">
+                        <span class="text-[10px] font-bold text-brand-red block uppercase">Logo 5</span>
+                        <span class="text-[8px] text-zinc-500 font-mono mt-0.5 font-sans">logo5.png</span>
+                        <span class="text-[9px] text-white font-mono font-bold mt-1.5 font-sans">180 x 48 px</span>
+                    </div>
+                </div>
+
+                <!-- ESTRELLA DIVISORA -->
+                <span class="text-brand-red text-base select-none shrink-0">★</span>
+
+                <!-- LOGO 6 (logo6.png - Estándar: 180x48px) -->
+                <div class="flex flex-col items-center justify-center min-w-[180px] shrink-0">
+                    <img src="assets/experience/logo6.png" 
+                         alt="Logo 6" 
+                         class="h-12 w-[180px] object-contain pointer-events-none"
+                         onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden'); this.nextElementSibling.classList.add('flex')">
+                    <div class="hidden flex-col items-center justify-center border border-zinc-800 bg-zinc-950/90 rounded-lg p-3 text-center tracking-normal w-[180px] h-[72px]">
+                        <span class="text-[10px] font-bold text-brand-red block uppercase">Logo 6</span>
+                        <span class="text-[8px] text-zinc-500 font-mono mt-0.5 font-sans">logo6.png</span>
+                        <span class="text-[9px] text-white font-mono font-bold mt-1.5 font-sans">180 x 48 px</span>
+                    </div>
+                </div>
+
+                <!-- ESTRELLA DIVISORA -->
+                <span class="text-brand-red text-base select-none shrink-0">★</span>
+
+                <!-- LOGO 7 (logo7.png - Estándar: 180x48px) -->
+                <div class="flex flex-col items-center justify-center min-w-[180px] shrink-0">
+                    <img src="assets/experience/logo7.png" 
+                         alt="Logo 7" 
+                         class="h-12 w-[180px] object-contain pointer-events-none"
+                         onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden'); this.nextElementSibling.classList.add('flex')">
+                    <div class="hidden flex-col items-center justify-center border border-zinc-800 bg-zinc-950/90 rounded-lg p-3 text-center tracking-normal w-[180px] h-[72px]">
+                        <span class="text-[10px] font-bold text-brand-red block uppercase">Logo 7</span>
+                        <span class="text-[8px] text-zinc-500 font-mono mt-0.5 font-sans">logo7.png</span>
+                        <span class="text-[9px] text-white font-mono font-bold mt-1.5 font-sans">180 x 48 px</span>
+                    </div>
+                </div>
+
+                <!-- ESTRELLA DIVISORA FINAL DEL GRUPO -->
+                <span class="text-brand-red text-base select-none shrink-0">★</span>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- 4. PORTAFOLIO INTERACTIVO                                 -->
+    <!-- ========================================================= -->
+    <section id="portafolio" class="py-24 relative bg-brand-dark/90 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+                <div class="space-y-2">
+                    <div class="flex items-center space-x-4">
+                        <div class="h-px bg-brand-red w-12"></div>
+                        <h2 class="font-display text-3xl md:text-5xl font-extrabold tracking-widest text-white uppercase font-serif">Portafolio</h2>
+                    </div>
+                    <p class="text-zinc-400 text-sm font-light max-w-lg font-body">Desglose de mi trayectoria gráfica: branding conceptual, modelado tridimensional, diseño web y motion graphics.</p>
+                </div>
+
+                <!-- Pestañas de filtrado dinámico -->
+                <div class="flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-wider" id="filter-tabs">
+                    <button onclick="filterPortfolio('todos', event)" class="filter-btn px-4 py-2 rounded-lg bg-accentRed text-white transition-all">Todos</button>
+                    <button onclick="filterPortfolio('branding', event)" class="filter-btn px-4 py-2 rounded-lg bg-zinc-950 hover:bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-900 transition-all">Branding</button>
+                    <button onclick="filterPortfolio('entornos3d', event)" class="filter-btn px-4 py-2 rounded-lg bg-zinc-950 hover:bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-900 transition-all">Entornos 3D</button>
+                    <button onclick="filterPortfolio('web', event)" class="filter-btn px-4 py-2 rounded-lg bg-zinc-950 hover:bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-900 transition-all">Diseño Web</button>
+                    <button onclick="filterPortfolio('motion', event)" class="filter-btn px-4 py-2 rounded-lg bg-zinc-950 hover:bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-900 transition-all">Motion & Video</button>
+                </div>
+            </div>
+
+            <!-- Grilla del Portafolio: Nuevos proyectos primero (de Izquierda a Derecha) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 font-body" id="portfolio-grid">
+                
+                <!-- Proyecto 5: Branding Ketsuro (2026) -->
+                <div class="project-card group cursor-pointer bg-zinc-950/80 border border-zinc-900 rounded-xl overflow-hidden hover:border-brand-red transition-all duration-300" data-category="branding" onclick="openProjectModal(5)">
+                    <div class="aspect-[16/10] w-full bg-brand-dark relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black/40 z-10 group-hover:bg-black/10 transition-colors duration-300"></div>
+                        <img src="assets/projects/brand-2.jpg" 
+                             alt="Caso de Branding Ketsuro" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+                             onerror="this.style.display='none'; document.getElementById('ph-5').classList.remove('hidden')" />
+                        
+                        <div id="ph-5" class="hidden absolute inset-0 flex flex-col items-center justify-center p-6 bg-gradient-to-br from-zinc-950 to-zinc-900 text-center">
+                            <i data-lucide="layers" class="text-brand-red w-10 h-10 mb-2"></i>
+                            <span class="text-xs uppercase font-bold text-zinc-500">Branding & Identidad</span>
+                            <span class="text-[10px] text-zinc-600 mt-1 font-mono">assets/projects/brand-2.jpg</span>
+                        </div>
+                        <span class="absolute top-4 left-4 z-20 px-2 py-1 text-[10px] font-bold uppercase tracking-wider bg-black/80 border border-zinc-900 rounded text-brand-red">Branding</span>
+                    </div>
+                    <div class="p-6 space-y-2">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-lg font-bold text-white group-hover:text-brand-red transition-colors font-body">Ketsuro Brand Identity</h3>
+                            <i data-lucide="arrow-up-right" class="w-4 h-4 text-zinc-500 group-hover:text-brand-red transition-colors"></i>
+                        </div>
+                        <p class="text-xs text-zinc-400 font-light line-clamp-2">Identidad visual minimalista y potente para marca de ropa.</p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="text-[10px] uppercase font-bold text-zinc-500 bg-black/45 px-2 py-0.5 rounded border border-zinc-900">Streetwear</span>
+                            <span class="text-[10px] uppercase font-bold text-zinc-500 bg-black/45 px-2 py-0.5 rounded border border-zinc-900">Marca</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 4: Motion & Video (2026) -->
+                <div class="project-card group cursor-pointer bg-zinc-950/80 border border-zinc-900 rounded-xl overflow-hidden hover:border-brand-red transition-all duration-300" data-category="motion" onclick="openProjectModal(4)">
+                    <div class="aspect-[16/10] w-full bg-brand-dark/95 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black/45 z-10 group-hover:bg-black/15 transition-colors duration-300"></div>
+                        <img src="assets/projects/video-1.jpg" 
+                             alt="Motion Graphics Case" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+                             onerror="this.style.display='none'; document.getElementById('ph-4').classList.remove('hidden')" />
+                        
+                        <div id="ph-4" class="hidden absolute inset-0 flex flex-col items-center justify-center p-6 bg-gradient-to-br from-zinc-950 to-zinc-900 text-center">
+                            <i data-lucide="video" class="text-brand-red w-10 h-10 mb-2"></i>
+                            <span class="text-xs uppercase font-bold text-zinc-500">Dirección Audiovisual</span>
+                            <span class="text-[10px] text-zinc-600 mt-1 font-mono">assets/projects/video-1.jpg</span>
+                        </div>
+                        <span class="absolute top-4 left-4 z-20 px-2 py-1 text-[10px] font-bold uppercase tracking-wider bg-black/80 border border-zinc-900 rounded text-brand-red">Motion Graphics</span>
+                    </div>
+                    <div class="p-6 space-y-2">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-lg font-bold text-white group-hover:text-brand-red transition-colors font-body">Animación Logo - Artes FACCC</h3>
+                            <i data-lucide="arrow-up-right" class="w-4 h-4 text-zinc-500 group-hover:text-brand-red transition-colors"></i>
+                        </div>
+                        <p class="text-xs text-zinc-400 font-light line-clamp-2">Diseño, animación y producción de logo para redes sociales.</p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="text-[10px] uppercase font-bold text-zinc-500 bg-black/45 px-2 py-0.5 rounded border border-zinc-900">After Effects</span>
+                            <span class="text-[10px] uppercase font-bold text-zinc-500 bg-black/45 px-2 py-0.5 rounded border border-zinc-900">Premiere Pro</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 3: Portfolio & Archivo Web (2026) -->
+                <div class="project-card group cursor-pointer bg-zinc-950/80 border border-zinc-900 rounded-xl overflow-hidden hover:border-brand-red transition-all duration-300" data-category="web" onclick="openProjectModal(3)">
+                    <div class="aspect-[16/10] w-full bg-brand-dark relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black/40 z-10 group-hover:bg-black/10 transition-colors duration-300"></div>
+                        <img src="assets/projects/web-1.jpg" 
+                             alt="Caso de Diseño Web" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+                             onerror="this.style.display='none'; document.getElementById('ph-3').classList.remove('hidden')" />
+                        
+                        <div id="ph-3" class="hidden absolute inset-0 flex flex-col items-center justify-center p-6 bg-gradient-to-br from-zinc-950 to-zinc-900 text-center">
+                            <i data-lucide="layout" class="text-brand-red w-10 h-10 mb-2"></i>
+                            <span class="text-xs uppercase font-bold text-zinc-500">Arquitectura de Interfaz</span>
+                            <span class="text-[10px] text-zinc-600 mt-1 font-mono">assets/projects/web-1.jpg</span>
+                        </div>
+                        <span class="absolute top-4 left-4 z-20 px-2 py-1 text-[10px] font-bold uppercase tracking-wider bg-black/80 border border-zinc-900 rounded text-brand-red">Diseño & Code</span>
+                    </div>
+                    <div class="p-6 space-y-2">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-lg font-bold text-white group-hover:text-brand-red transition-colors font-body">Portafolio - Harold Reina</h3>
+                            <i data-lucide="arrow-up-right" class="w-4 h-4 text-zinc-500 group-hover:text-brand-red transition-colors"></i>
+                        </div>
+                        <p class="text-xs text-zinc-400 font-light line-clamp-2">Cosntrucción de portafolio en su totalidad, UX, UI, Frontend y Backend</p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="text-[10px] uppercase font-bold text-zinc-500 bg-black/45 px-2 py-0.5 rounded border border-zinc-900">UI / UX</span>
+                            <span class="text-[10px] uppercase font-bold text-zinc-500 bg-black/45 px-2 py-0.5 rounded border border-zinc-900">Frontend / Backend</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 2: Entornos 3D (2026) -->
+                <div class="project-card group cursor-pointer bg-zinc-950/80 border border-zinc-900 rounded-xl overflow-hidden hover:border-brand-red transition-all duration-300" data-category="entornos3d" onclick="openProjectModal(2)">
+                    <div class="aspect-[16/10] w-full bg-brand-dark relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black/40 z-10 group-hover:bg-black/10 transition-colors duration-300"></div>
+                        <img src="assets/projects/3d-1.jpg" 
+                             alt="Caso de Entorno 3D" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+                             onerror="this.style.display='none'; document.getElementById('ph-2').classList.remove('hidden')" />
+                        
+                        <div id="ph-2" class="hidden absolute inset-0 flex flex-col items-center justify-center p-6 bg-gradient-to-br from-zinc-950 to-zinc-900 text-center">
+                            <i data-lucide="box" class="text-brand-red w-10 h-10 mb-2"></i>
+                            <span class="text-xs uppercase font-bold text-zinc-500">Modelado Tridimensional</span>
+                            <span class="text-[10px] text-zinc-600 mt-1 font-mono">assets/projects/3d-1.jpg</span>
+                        </div>
+                        <span class="absolute top-4 left-4 z-20 px-2 py-1 text-[10px] font-bold uppercase tracking-wider bg-black/80 border border-zinc-900 rounded text-brand-red">Entorno 3D</span>
+                    </div>
+                    <div class="p-6 space-y-2">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-lg font-bold text-white group-hover:text-brand-red transition-colors font-body">Animación 3D - Sinfulness&nbsp;</h3>
+                            <i data-lucide="arrow-up-right" class="w-4 h-4 text-zinc-500 group-hover:text-brand-red transition-colors"></i>
+                        </div>
+                        <p class="text-xs text-zinc-400 font-light line-clamp-2">Proyecto Sinfulness, animación, modelado, escenarios, dirección y producción audiovisual.</p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="text-[10px] uppercase font-bold text-zinc-500 bg-black/45 px-2 py-0.5 rounded border border-zinc-900">Blender / ZBrush</span>
+                            <span class="text-[10px] uppercase font-bold text-zinc-500 bg-black/45 px-2 py-0.5 rounded border border-zinc-900">Unreal Engine</span>
+                            <span class="text-[10px] uppercase font-bold text-zinc-500 bg-black/45 px-2 py-0.5 rounded border border-zinc-900">Maya</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 1: Branding Mercado Geek (2024 - Más antiguo, se muestra al final) -->
+                <div class="project-card group cursor-pointer bg-zinc-950/80 border border-zinc-900 rounded-xl overflow-hidden hover:border-brand-red transition-all duration-300" data-category="branding" onclick="openProjectModal(1)">
+                    <div class="aspect-[16/10] w-full bg-brand-dark relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black/40 z-10 group-hover:bg-black/10 transition-colors duration-300"></div>
+                        <img src="assets/projects/brand-1.jpg" 
+                             alt="Caso de Branding Mercado Geek" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+                             onerror="this.style.display='none'; document.getElementById('ph-1').classList.remove('hidden')" />
+                        
+                        <div id="ph-1" class="hidden absolute inset-0 flex flex-col items-center justify-center p-6 bg-gradient-to-br from-zinc-950 to-zinc-900 text-center">
+                            <i data-lucide="layers" class="text-brand-red w-10 h-10 mb-2"></i>
+                            <span class="text-xs uppercase font-bold text-zinc-500">Branding Conceptual</span>
+                            <span class="text-[10px] text-zinc-600 mt-1 font-mono">assets/projects/brand-1.jpg</span>
+                        </div>
+                        <span class="absolute top-4 left-4 z-20 px-2 py-1 text-[10px] font-bold uppercase tracking-wider bg-black/80 border border-zinc-900 rounded text-brand-red">Branding</span>
+                    </div>
+                    <div class="p-6 space-y-2">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-lg font-bold text-white group-hover:text-brand-red transition-colors font-body">Mercado Geek Branding</h3>
+                            <i data-lucide="arrow-up-right" class="w-4 h-4 text-zinc-500 group-hover:text-brand-red transition-colors"></i>
+                        </div>
+                        <p class="text-xs text-zinc-400 font-light line-clamp-2">Desarrollo de identidad corporativa y arquitectura de marca modular adaptada a un ecosistema retail omnicanal especializado en cultura geek.</p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="text-[10px] uppercase font-bold text-zinc-500 bg-black/45 px-2 py-0.5 rounded border border-zinc-900">Estrategia</span>
+                            <span class="text-[10px] uppercase font-bold text-zinc-500 bg-black/45 px-2 py-0.5 rounded border border-zinc-900">Marca</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- BANNER PANORÁMICO 2 (Responsivo)                          -->
+    <!-- ========================================================= -->
+    <section class="relative w-full h-[140px] sm:h-[220px] md:h-[300px] lg:h-[380px] bg-brand-dark overflow-hidden border-t border-b border-brand-gray">
+        <img src="assets/banners/banner-contact.jpg" 
+             alt="Banner Harold Reina Contacto" 
+             class="w-full h-full object-cover"
+             onerror="this.style.display='none'; document.getElementById('banner-contact-fallback').classList.remove('hidden')" />
+        
+        <!-- Fallback de diseño si no se encuentra la imagen -->
+        <div id="banner-contact-fallback" class="hidden absolute inset-0 bg-gradient-to-r from-brand-dark via-zinc-950 to-brand-dark flex items-center justify-center">
+            <div class="text-center space-y-2 p-4">
+                <span class="text-[8px] sm:text-[10px] uppercase tracking-widest font-bold text-brand-red font-body">Composición Conceptual 3D</span>
+                <h3 class="font-display text-lg sm:text-2xl md:text-4xl text-white tracking-widest">ESPACIO IMAGEN DE CONTACTO</h3>
+                <code class="text-[9px] sm:text-xs text-zinc-500 bg-black/40 px-2 py-1 rounded">assets/banners/banner-contact.jpg</code>
+                <span class="block text-[8px] sm:text-[10px] text-brand-red font-bold font-mono">ESPECIFICACIÓN: 1920 x 380 px</span>
+            </div>
+        </div>
+        <div class="absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-brand-dark to-transparent"></div>
+        <div class="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-brand-dark to-transparent"></div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- 5. CONTACTO                                               -->
+    <!-- ========================================================= -->
+    <section id="contacto" class="py-24 relative bg-brand-dark/95 backdrop-blur-md">
+        <div class="max-w-4xl mx-auto px-6">
+            
+            <div class="text-center space-y-3 mb-16">
+                <h2 class="font-display text-3xl md:text-5xl font-extrabold text-white tracking-widest uppercase font-serif">Contacto</h2>
+                <p class="text-zinc-400 text-sm font-light max-w-md mx-auto font-body">¿Tienes una gran idea que quieras estructurar? Escríbeme y hagámosla realidad.</p>
+            </div>
+
+            <div class="bg-zinc-950/80 border border-brand-gray p-8 rounded-2xl relative shadow-2xl font-body">
+                <!--/ Línea roja sutil de borde superior -->
+                <div class="absolute -top-px left-10 right-10 h-px bg-gradient-to-r from-transparent via-brand-red to-transparent"></div>
+                
+                <form id="contactForm" class="space-y-6" onsubmit="handleFormSubmit(event)">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Nombre -->
+                        <div class="space-y-2">
+                            <label for="name" class="text-xs font-bold uppercase tracking-wider text-zinc-400">Nombre</label>
+                            <input type="text" id="name" required class="w-full bg-black/40 border border-brand-gray focus:border-brand-red focus:ring-1 focus:ring-brand-red rounded-lg px-4 py-3 text-sm text-white focus:outline-none transition-all" placeholder="Tu nombre">
+                        </div>
+                        <!-- Correo -->
+                        <div class="space-y-2">
+                            <label for="email" class="text-xs font-bold uppercase tracking-wider text-zinc-400">Correo</label>
+                            <input type="email" id="email" required class="w-full bg-black/40 border border-brand-gray focus:border-brand-red focus:ring-1 focus:ring-brand-red rounded-lg px-4 py-3 text-sm text-white focus:outline-none transition-all" placeholder="tu@correo.com">
+                        </div>
+                    </div>
+
+                    <!-- Tipo de Proyecto -->
+                    <div class="space-y-2">
+                        <label for="project-type" class="text-xs font-bold uppercase tracking-wider text-zinc-400">¿Qué tipo de proyecto estás pensando?</label>
+                        <select id="project-type" class="w-full bg-black/40 border border-brand-gray focus:border-brand-red focus:ring-1 focus:ring-brand-red rounded-lg px-4 py-3 text-sm text-white focus:outline-none transition-all">
+                            <option value="branding" class="bg-zinc-950 text-zinc-300">Branding & Identidad</option>
+                            <option value="3d" class="bg-zinc-950 text-zinc-300">Modelado & Animación 3D</option>
+                            <option value="motion" class="bg-zinc-950 text-zinc-300">Motion Graphics / Realización Audiovisual</option>
+                            <option value="web" class="bg-zinc-950 text-zinc-300">Desarrollo Web / Arquitectura de Interfaz</option>
+                            <option value="completo" class="bg-zinc-950 text-zinc-300">Proyecto Multidisciplinario Completo</option>
+                            <option value="otros" class="bg-zinc-950 text-zinc-300">Otros / Propuesta Personalizada</option>
+                        </select>
+                    </div>
+
+                    <!-- Mensaje -->
+                    <div class="space-y-2">
+                        <label for="message" class="text-xs font-bold uppercase tracking-wider text-zinc-400">Mensaje</label>
+                        <textarea id="message" rows="5" required class="w-full bg-black/40 border border-brand-gray focus:border-brand-red focus:ring-1 focus:ring-brand-red rounded-lg px-4 py-3 text-sm text-white focus:outline-none transition-all" placeholder="Escribe aquí los detalles del proyecto..."></textarea>
+                    </div>
+
+                    <!-- Botón Enviar -->
+                    <div class="pt-2">
+                        <button type="submit" class="w-full py-4 bg-brand-red hover:bg-brand-red/90 text-white font-bold text-xs uppercase tracking-widest rounded-lg transition-colors flex items-center justify-center gap-2 shadow-lg shadow-brand-red/10">
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                            Enviar mensaje
+                        </button>
+                    </div>
+                </form>
+
+                <!--/ Mensaje de Éxito Custom -->
+                <div id="successCard" class="hidden absolute inset-0 bg-brand-dark/95 backdrop-blur-sm rounded-2xl flex flex-col items-center justify-center text-center p-8 space-y-4">
+                    <div class="w-16 h-16 rounded-full bg-brand-red/20 flex items-center justify-center text-brand-red">
+                        <i data-lucide="check" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white font-display uppercase tracking-wider">¡Mensaje Enviado!</h3>
+                    <p class="text-sm text-zinc-400 max-w-xs">Tu propuesta se ha procesado correctamente. Me pondré en contacto contigo en breve.</p>
+                    <button onclick="resetContactForm()" class="px-5 py-2 rounded-lg bg-zinc-900 hover:bg-zinc-850 text-white font-semibold text-xs uppercase tracking-wider transition-colors">
+                        Enviar otro mensaje
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Botón Flotante de WhatsApp Profesional -->
+    <a href="https://wa.me/573187801778?text=Hola%20Harold,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto." 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="fixed bottom-6 right-6 z-40 w-14 h-14 bg-brand-dark hover:bg-brand-red border border-brand-red text-white rounded-full shadow-[0_0_15px_rgba(177,0,0,0.3)] hover:shadow-[0_0_25px_rgba(177,0,0,0.6)] flex items-center justify-center transition-all duration-300 transform hover:scale-110 group" 
+       title="Hablemos por WhatsApp">
+        <svg class="w-7 h-7 text-zinc-300 group-hover:text-white transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+
+    <!-- ========================================================= -->
+    <!-- FOOTER (Diseño Brutalista Oscuro Unificado Premium)        -->
+    <!-- ========================================================= -->
+    <footer class="bg-brand-dark/95 text-zinc-400 pt-16 pb-8 border-t border-brand-red/30">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                
+                <!-- Branding -->
+                <div class="space-y-4">
+                    <!-- Logo Footer -->
+                    <div class="mb-4">
+                        <img src="assets/logo/logo.png" 
+                             alt="Logo Harold Reina" 
+                             class="h-12 w-auto object-contain brightness-0 invert opacity-80"
+                             onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
+                        <!-- Fallback -->
+                        <div id="logo-footer-fallback" class="hidden text-white font-display text-2xl tracking-widest uppercase">
+                            HAROLD REINA
+                        </div>
+                    </div>
+                    <p class="text-zinc-400/90 font-light text-sm leading-relaxed max-w-xs font-body">
+                        Diseño gráfico, publicidad y marketing estratégico. Llevamos tu marca al siguiente nivel con contenido que conecta, impacta y convierte.
+                    </p>
+                </div>
+
+                <!-- Enlaces Rápidos -->
+                <div>
+                    <h4 class="text-2xl font-display uppercase tracking-widest mb-4 text-white font-serif">Navegación</h4>
+                    <ul class="space-y-3 font-semibold text-xs uppercase tracking-wider font-body">
+                        <li>
+                            <a href="#inicio" class="hover:text-brand-red transition-colors flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 bg-brand-red rounded-full"></span> Inicio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#sobre-mi" class="hover:text-brand-red transition-colors flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 bg-brand-red rounded-full"></span> Sobre Mí
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#portafolio" class="hover:text-brand-red transition-colors flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 bg-brand-red rounded-full"></span> Portafolio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#contacto" class="hover:text-brand-red transition-colors flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 bg-brand-red rounded-full"></span> Contacto
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Redes Sociales Actualizadas (Sin Facebook ni Correo) -->
+                <div>
+                    <h4 class="text-2xl font-display uppercase tracking-widest mb-4 text-white font-serif">Conecta</h4>
+                    <div class="flex space-x-3">
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/harold.reina_keto/" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full border border-brand-gray flex items-center justify-center bg-zinc-900/40 text-zinc-400 hover:text-white hover:border-brand-red transition-all duration-300 hover:-translate-y-1 shadow-md shadow-black/30" aria-label="Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.047-1.379.06-3.808.06-2.43 0-2.784-.013-3.808-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.476 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                        <!-- Behance -->
+                        <a href="https://www.behance.net/haroldreinar" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full border border-brand-gray flex items-center justify-center bg-zinc-900/40 text-zinc-400 hover:text-white hover:border-brand-red transition-all duration-300 hover:-translate-y-1 shadow-md shadow-black/30" aria-label="Behance">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14h-8.027c.13 3.211 3.483 3.312 4.588 2.029h3.168zm-7.686-4h4.965c-.105-1.547-1.136-2.219-2.477-2.219-1.466 0-2.277.768-2.488 2.219zm-9.574 6.988h-6.466v-14.967h6.953c5.476.081 5.58 5.444 2.72 6.906 3.461 1.26 3.577 8.061-3.207 8.061zm-3.466-8.988h3.584c2.508 0 2.906-3-.312-3h-3.272v3zm3.391 3h-3.391v3.016h3.341c3.055 0 2.868-3.016.05-3.016z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Divisor y Copyright -->
+            <div class="border-t border-zinc-900 pt-8 flex flex-col items-center justify-center text-center text-xs font-bold uppercase tracking-wider text-zinc-500 font-body">
+                <p>&copy; 2026 HAROLD REINA. TODOS LOS DERECHOS RESERVADOS.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================================= -->
+    <!-- CASO DE ESTUDIO MODAL DETALLADO                           -->
+    <!-- ========================================================= -->
+    <div id="projectModal" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm hidden items-center justify-center p-4 font-body">
+        <div class="bg-zinc-950 border border-brand-gray rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative p-6 md:p-8 space-y-6">
+            <button onclick="closeProjectModal()" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-zinc-900 hover:bg-zinc-800 text-zinc-400 hover:text-white flex items-center justify-center transition-colors">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <div class="space-y-2">
+                <span id="modal-category" class="text-xs font-bold uppercase tracking-widest text-brand-red font-body">Categoría</span>
+                <h2 id="modal-title" class="font-display text-2xl md:text-4xl font-extrabold text-white">Título del Proyecto</h2>
+            </div>
+
+            <!-- Contenedor adaptado a proporción 3:2 exacta para 1200x800px (Sin recortes, centrado y con fondo oscuro) -->
+            <div class="aspect-[3/2] max-h-[480px] w-full rounded-xl bg-zinc-900/60 overflow-hidden relative border border-brand-gray flex items-center justify-center">
+                <img id="modal-image" src="" alt="Detalle" class="w-full h-full object-contain transition-all duration-500" />
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pt-4">
+                <div class="md:col-span-4 space-y-6 bg-black/30 border border-brand-gray p-5 rounded-xl text-xs flex flex-col justify-between min-h-[220px]">
+                    <div class="space-y-4">
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-white border-b border-brand-gray pb-2">Especificaciones</h4>
+                        <div>
+                            <span class="text-zinc-500 block uppercase font-bold tracking-widest text-[9px] mb-1">Rol creativo</span>
+                            <span class="text-white font-medium" id="modal-role">Diseño, Dirección de Arte, 3D</span>
+                        </div>
+                        <div>
+                            <span class="text-zinc-500 block uppercase font-bold tracking-widest text-[9px] mb-1">Software & Tools</span>
+                            <span class="text-white font-medium" id="modal-tools">Blender, After Effects, Illustrator</span>
+                        </div>
+                        <div>
+                            <span class="text-zinc-500 block uppercase font-bold tracking-widest text-[9px] mb-1">Año</span>
+                            <span class="text-white font-medium" id="modal-year">2026</span>
+                        </div>
+                    </div>
+                    <!-- Botón interactivo "Ver más" de redirección a Behance -->
+                    <div class="pt-4 border-t border-brand-gray/30 mt-4">
+                        <a id="modal-behance-link" href="#" target="_blank" rel="noopener noreferrer" class="w-full py-3 bg-brand-red hover:bg-brand-red/90 text-white font-bold text-center block uppercase tracking-widest text-[10px] rounded-lg transition-colors flex items-center justify-center gap-2">
+                            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                            Ver más en Behance
+                        </a>
+                    </div>
+                </div>
+
+                <div class="md:col-span-8 space-y-6">
+                    <div class="space-y-3">
+                        <h4 class="text-sm font-bold uppercase text-brand-red font-display">Concepto</h4>
+                        <p id="modal-concept" class="text-sm text-zinc-400 font-light leading-relaxed font-body">Detalles del concepto estético.</p>
+                    </div>
+                    <div class="space-y-3">
+                        <h4 class="text-sm font-bold uppercase text-brand-red font-display">Proceso Técnico</h4>
+                        <p id="modal-process" class="text-sm text-zinc-400 font-light leading-relaxed font-body">Workflow del caso de estudio.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTROL DE INTERACCIÓN NAVEGACIÓN -->
+    <script>
+        // Inicializar iconos
+        lucide.createIcons();
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // FILTRADO DINÁMICO DEL PORTAFOLIO
+        function filterPortfolio(category, event) {
+            const cards = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-brand-red', 'text-white');
+                btn.classList.add('bg-zinc-950', 'text-zinc-400', 'hover:text-white', 'border-zinc-900');
+            });
+
+            if(event && event.currentTarget) {
+                event.currentTarget.classList.add('bg-brand-red', 'text-white');
+                event.currentTarget.classList.remove('bg-zinc-950', 'text-zinc-400', 'hover:text-white', 'border-zinc-900');
+            }
+
+            cards.forEach(card => {
+                if (category === 'todos') {
+                    card.classList.remove('hidden');
+                } else {
+                    if (card.getAttribute('data-category') === category) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                }
+            });
+        }
+
+        // Datos del portafolio (Casos de Estudio actualizados con links de Behance configurables)
+        const projectData = {
+            1: {
+                title: "Mercado Geek Branding",
+                category: "Branding & Dirección de Arte",
+                role: "Estrategia de Marca, Identidad y Packaging",
+                tools: "Adobe Illustrator, Photoshop",
+                year: "2024",
+                concept: "Desarrollo de identidad corporativa y arquitectura de marca modular adaptada a un ecosistema retail omnicanal especializado en cultura geek.",
+                process: "Se estudió el público objetivo Geek para lograr que el concepto de la marca conecte con ellos de manera orgánica. El manual de identidad define el uso de contrastes cromáticos de alta saturación y una biblioteca de assets modulares de empaque adaptables a diferentes SKU de merchandise.",
+                behance: "https://www.behance.net/gallery/249327721/Creacion-de-Marca-MERCADO-GEEK"
+            },
+            2: {
+                title: "Animación 3D - Sinfulness",
+                category: "Modelado & Animación 3D",
+                role: "Modelado, texturizado, render, dirección de cámaras, concept art",
+                tools: "Blender, ZBrush, Unreal Engine, Maya, Photoshop",
+                year: "2024",
+                concept: "Sinfulness es un cortometraje de terror de 1:40 minutos ambientado en la infame prisión de Alcatraz, creado como un proyecto académico para mostrar mis habilidades en animación 3D, modelado. Este trabajo combina modelado de personajes, diseño de escenarios, edición de video y postproducción para crear una experiencia inmersiva y escalofriante.",
+                process: "Modelado 3D, texturizado, pintura, rigging, producción audiovisual, Modelado de entornos, iluminación, render, producción sonora y arte finalización .",
+                behance: "https://www.behance.net/gallery/228364787/PROYECTO-SINFULNESS"
+            },
+            3: {
+                title: "Portafolio personal Web",
+                category: "Diseño Web Frontend/ Backend / UI / UX",
+                role: "Diseño visual, codificación y publicación de mi portafolio web",
+                tools: "DreamWeaver, Figma, HTML5, Tailwind CSS, JS",
+                year: "2026",
+                concept: "Concepto: Dirección de arte bajo una estética técnica minimalista con fuertes influencias brutalistas y de diseño suizo. El diseño prioriza la legibilidad premium, el contraste de color absoluto (negro puro y rojo de alto impacto #B10000) y la transparencia conceptual, estructurado mediante una grilla responsiva y un patrón modular interactivo de precisión técnica.",
+                process: "Desarrollo Front-End en arquitectura single-file optimizado para tiempos de carga inmediatos. Integración fluida de Tailwind CSS para el diseño líquido adaptativo de doble relación de aspecto (panorámico y cuadrado 1:1 en móviles). Slider interactivo de logos programado en JavaScript nativo con lógica de seamless triple loop para simular un bucle infinito deslizable sin fisuras. Formulario asíncrono conectado directamente a la API Web3Forms mediante fetch/promises para envíos asíncronos en segundo plano con estados de carga e indicación de éxito en tiempo real.",
+                behance: "https://www.behance.net/haroldreinar"
+            },
+            4: {
+                title: "Animación Logo - Artes FACCC",
+                category: "Motion Graphics & Audiovisual",
+                role: "Animación de logo & Edición Audiovisual",
+                tools: "After Effects, Premiere Pro",
+                year: "2025",
+                concept: "Animación de identificador visual de la Fundación Artes FACCC para sus redes sociales",
+                process: "Animación individual de objetos en Adobe Premiere, acompañada de ritmos sonoros",
+                behance: "https://www.behance.net/gallery/249327947/Animacion-de-logo-FACCC"
+            },
+            5: {
+                title: "Ketsuro Brand Identity",
+                category: "Branding & Dirección de Arte",
+                role: "Diseño de Identidad Visual, Tipografía Corporativa y Redes",
+                tools: "Adobe Illustrator, Photoshop, Blender",
+                year: "2025",
+                concept: "Construcción conceptual de marca inspirada en la estética japonesa y la moda urbana - gótica.",
+                process: "Diseño y construcción de un logotipo de alta legibilidad técnica. Desarrollo de una guía de estilo corporativo que incluye el uso de redes, comunicaciones y una línea estética a seguir según el concepto.",
+                behance: "https://www.behance.net/haroldreinar"
+            }
+        };
+
+        function openProjectModal(projectId) {
+            const data = projectData[projectId];
+            if (!data) return;
+
+            document.getElementById('modal-title').innerText = data.title;
+            document.getElementById('modal-category').innerText = data.category;
+            
+            const localImg = `assets/projects/` + (
+                projectId === 1 ? 'brand-1.jpg' : 
+                projectId === 2 ? '3d-1.jpg' : 
+                projectId === 3 ? 'web-1.jpg' : 
+                projectId === 4 ? 'video-1.jpg' : 
+                projectId === 5 ? 'brand-2.jpg' : 'brand-1.jpg'
+            );
+            const imgEl = document.getElementById('modal-image');
+            imgEl.src = localImg;
+            imgEl.onerror = function() {
+                imgEl.src = data.image;
+            };
+
+            document.getElementById('modal-role').innerText = data.role;
+            document.getElementById('modal-tools').innerText = data.tools;
+            document.getElementById('modal-year').innerText = data.year;
+            document.getElementById('modal-concept').innerText = data.concept;
+            document.getElementById('modal-process').innerText = data.process;
+
+            // Configurar dinámicamente el botón "Ver más" de Behance
+            const behanceBtn = document.getElementById('modal-behance-link');
+            if (data.behance) {
+                behanceBtn.href = data.behance;
+                behanceBtn.style.display = 'flex';
+            } else {
+                behanceBtn.style.display = 'none';
+            }
+
+            const modal = document.getElementById('projectModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProjectModal() {
+            const modal = document.getElementById('projectModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+
+        // Cierre del modal interactivo al hacer clic fuera del recuadro
+        document.getElementById('projectModal').addEventListener('click', function(event) {
+            // Si el elemento clicado es exactamente el backdrop contenedor (o sea, no el contenido del modal)
+            if (event.target === this) {
+                closeProjectModal();
+            }
+        });
+
+        // DETECCION DINÁMICA DE SECCIONES
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollPos = window.scrollY || document.documentElement.scrollTop;
+            
+            sections.forEach(sec => {
+                const secTop = sec.offsetTop - 100;
+                const secHeight = sec.offsetHeight;
+                const secId = sec.getAttribute('id');
+                const navLink = document.getElementById('link-' + secId);
+
+                if (navLink && scrollPos >= secTop && scrollPos < secTop + secHeight) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('text-brand-red', 'bg-[#1a0000]', 'px-3', 'py-1.5', 'border-b-2', 'border-brand-red');
+                        link.classList.add('text-zinc-400', 'hover:text-white');
+                    });
+                    navLink.classList.add('text-brand-red', 'bg-[#1a0000]', 'px-3', 'py-1.5', 'border-b-2', 'border-brand-red');
+                    navLink.classList.remove('text-zinc-400', 'hover:text-white');
+                }
+            });
+        });
+
+        /* ========================================================= */
+        /* CONFIGURACIÓN Y ENVÍO DE FORMULARIO DE CONTACTO REAL        */
+        /* ========================================================= */
+        const WEB3FORMS_ACCESS_KEY = "50e8ac28-7e12-466d-8812-9512db51479a";
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const form = document.getElementById('contactForm');
+            const btn = form.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            
+            // Bloquear el botón e iniciar el cargador técnico
+            btn.disabled = true;
+            btn.innerHTML = `<i data-lucide="loader" class="w-4 h-4 animate-spin font-body"></i> Procesando...`;
+            lucide.createIcons();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const projectType = document.getElementById('project-type').value;
+            const message = document.getElementById('message').value;
+
+            // MODO SIMULACIÓN (Si la clave es la por defecto y falla el envío)
+            if (WEB3FORMS_ACCESS_KEY === "YOUR_ACCESS_KEY_HERE") {
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                    lucide.createIcons();
+                    document.getElementById('successCard').classList.remove('hidden');
+                    console.log("Simulación de envío de formulario exitosa. Configura tu WEB3FORMS_ACCESS_KEY para recibir correos reales.");
+                }, 1200);
+                return;
+            }
+
+            // MODO PRODUCCIÓN (Envío asíncrono seguro a Web3Forms)
+            fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify({
+                    access_key: WEB3FORMS_ACCESS_KEY,
+                    name: name,
+                    email: email,
+                    subject: `Nuevo Proyecto: ${projectType} - de ${name}`,
+                    project_type: projectType,
+                    message: message
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                lucide.createIcons();
+                
+                if (data.success) {
+                    document.getElementById('successCard').classList.remove('hidden');
+                } else {
+                    console.error("Error en Web3Forms:", data.message);
+                    document.getElementById('successCard').classList.remove('hidden');
+                }
+            })
+            .catch(error => {
+                console.error("Error de Red:", error);
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                lucide.createIcons();
+                document.getElementById('successCard').classList.remove('hidden');
+            });
+        }
+
+        function resetContactForm() {
+            document.getElementById('contactForm').reset();
+            document.getElementById('successCard').classList.add('hidden');
+        }
+
+        // Cerrar modales con Escape
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeProjectModal();
+            }
+        });
+
+        /* ========================================================= */
+        /* GESTIÓN INTERACTIVA DEL SLIDER INFINITO DESLIZABLE (JS)     */
+        /* ========================================================= */
+        const slider = document.getElementById('logo-slider');
+        
+        // 1. Duplicamos y preparamos el loop infinito (triplicamos el contenido original de logos)
+        const originalContent = slider.innerHTML;
+        slider.innerHTML = originalContent + originalContent + originalContent;
+
+        // 2. Desplazar al centro exacto al inicializar para permitir scroll bidireccional fluido
+        function initSliderPosition() {
+            slider.classList.remove('scroll-smooth');
+            const offsetWidth = slider.scrollWidth / 3;
+            slider.scrollLeft = offsetWidth;
+        }
+
+        window.addEventListener('load', initSliderPosition);
+        window.addEventListener('resize', initSliderPosition);
+
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        // Soporte de Arrastre con Ratón
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.classList.add('active:cursor-grabbing');
+            slider.classList.remove('scroll-smooth'); 
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            slider.classList.remove('active:cursor-grabbing');
+        });
+
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.classList.remove('active:cursor-grabbing');
+        });
+
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 1.5; 
+            slider.scrollLeft = scrollLeft - walk;
+        });
+
+        // Soporte Táctil para Dispositivos Móviles
+        slider.addEventListener('touchstart', (e) => {
+            isDown = true;
+            slider.classList.remove('scroll-smooth'); 
+            startX = e.touches[0].pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+
+        slider.addEventListener('touchend', () => {
+            isDown = false;
+        });
+
+        slider.addEventListener('touchmove', (e) => {
+            if (!isDown) return;
+            const x = e.touches[0].pageX - slider.offsetLeft;
+            const walk = (x - startX) * 1.5; 
+            slider.scrollLeft = scrollLeft - walk;
+        });
+
+        // 3. Verificación de scroll para seamless loop (bucle infinito sin cortes)
+        slider.addEventListener('scroll', () => {
+            const sectionWidth = slider.scrollWidth / 3;
+            
+            if (slider.scrollLeft <= 20) {
+                slider.classList.remove('scroll-smooth');
+                slider.scrollLeft += sectionWidth;
+            }
+            else if (slider.scrollLeft >= (slider.scrollWidth - slider.clientWidth - 20)) {
+                slider.classList.remove('scroll-smooth');
+                slider.scrollLeft -= sectionWidth;
+            }
+        });
+    </script>
+</body>
+</html>
